@@ -11,9 +11,13 @@ class App extends Component {
     fetch("https://itunes.apple.com/search?term=taylor+swift")
     .then((response) => { return(response.json())})
     .then((objetoJSON) =>{
-		console.log(objetoJSON)
-        return(objetoJSON)
-//      this.setState({apiResponse:objetoJSON})
+        console.log(objetoJSON)
+        var songss = (objetoJSON.results.map(function(songs){
+    return	songs.json()
+        }))
+    Promise.all(songss)
+    }).then((objetoNuevo)=>{
+        console.log(objetoNuevo)
     })
   
   }
