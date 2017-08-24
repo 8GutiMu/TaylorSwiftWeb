@@ -12,12 +12,10 @@ class App extends Component {
     .then((response) => { return(response.json())})
     .then((objetoJSON) =>{
         console.log(objetoJSON)
-        var songss = (objetoJSON.results.map(function(songs){
-    return	songs.json()
-        }))
+        var songss = (objetoJSON.results.map((response)=>{ return(console.log(response))}))
     Promise.all(songss)
     }).then((objetoNuevo)=>{
-        console.log(objetoNuevo)
+        console.log("correct",objetoNuevo)
     })
   
   }
